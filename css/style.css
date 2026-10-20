@@ -1,0 +1,59 @@
+/* 光溺 DROWNLIGHT —— 页面级样式
+   全部界面由 canvas 绘制，这里只负责：铺满、禁止滚动、禁止缩放、竖屏遮挡 */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #02060c;
+  color: #7cf6ff;
+  touch-action: none;
+  overscroll-behavior: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  cursor: default;
+}
+
+canvas#cv {
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+}
+
+body.playing canvas#cv { cursor: none; }
+
+#rotate {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: #02060c;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: ui-monospace, "Cascadia Mono", Consolas, "Microsoft YaHei", monospace;
+}
+
+#rotate.on { display: flex; }
+
+#rotate .rt {
+  font-size: 18px;
+  letter-spacing: 4px;
+  color: #3ef0c8;
+  margin-bottom: 10px;
+}
+
+#rotate .rs {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: rgba(180, 210, 230, .5);
+}
+
+#boot-status { font-family: ui-monospace, Consolas, monospace; }

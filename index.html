@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#02060c">
+<title>光溺 DROWNLIGHT</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas id="cv"></canvas>
+
+<div id="rotate">
+  <div>
+    <div class="rt">请旋转设备</div>
+    <div class="rs">本游戏仅支持横屏</div>
+  </div>
+</div>
+
+<script>
+window.__ERRS = [];
+(function () {
+  function show(msg) {
+    window.__ERRS.push(msg);
+    var d = document.getElementById('boot-status');
+    if (!d) {
+      d = document.createElement('div');
+      d.id = 'boot-status';
+      d.style.cssText = 'position:fixed;left:0;top:0;right:0;color:#ff6b8a;font:12px/1.4 ui-monospace,Consolas,monospace;z-index:99999;background:rgba(0,0,0,.88);padding:6px;white-space:pre-wrap;max-height:40%;overflow:auto';
+      document.body.appendChild(d);
+    }
+    d.textContent = 'ERR:\n' + window.__ERRS.join('\n');
+  }
+  window.__showErr = show;
+  window.onerror = function (m, s, l, c) { show((m || 'error') + ' @' + (s || '?') + ':' + (l || 0) + ':' + (c || 0)); return false; };
+  window.addEventListener('unhandledrejection', function (e) { show('promise: ' + (e && e.reason && e.reason.message ? e.reason.message : String(e && e.reason))); });
+})();
+</script>
+
+<script src="js/data.js"></script>
+<script src="js/core.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/entities.js"></script>
+<script src="js/systems.js"></script>
+<script src="js/render.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/console.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

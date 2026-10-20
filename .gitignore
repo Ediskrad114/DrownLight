@@ -1,0 +1,27 @@
+# ---- 构建产物 ----
+# exe 由 build\build.ps1 生成，通过 GitHub Releases 分发，不进仓库
+*.exe
+*.pdb
+*.ilk
+
+# ---- 构建中间物 ----
+build/__pycache__/
+*.pyc
+build/*.res
+build/*.tmp
+
+# ---- 运行时数据（本地存档 / WebView2 用户数据）----
+app/
+udf/
+bin/
+prof*/
+
+# ---- 编辑器 / 系统 ----
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+Thumbs.db
+desktop.ini
+.DS_Store

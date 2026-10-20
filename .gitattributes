@@ -1,0 +1,20 @@
+# 默认按文本处理，提交时统一成 LF，检出时按平台还原
+* text=auto eol=lf
+
+# 代码与文档
+*.js    text eol=lf
+*.css   text eol=lf
+*.html  text eol=lf
+*.md    text eol=lf
+*.ps1   text eol=crlf
+*.cs    text eol=crlf
+
+# 二进制（不要做换行转换，也不要尝试 diff）
+*.exe   binary
+*.dll   binary
+*.ico   binary
+*.png   binary
+*.jpg   binary
+
+# 让 GitHub 把数据/脚本当代码统计
+*.js    linguist-language=JavaScript
